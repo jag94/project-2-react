@@ -7,6 +7,7 @@ import axios from 'axios';
 import TaskList from "./TaskList";
 import Pages from "./Pages";
 import AddTask from "./AddTask";
+import TaskBoard from "./TaskBoard";
 //anything else for imports
 
 //Constants
@@ -91,8 +92,10 @@ class App extends React.Component {
               </div>
           )
         );
+      case 'add':
+        return (this.wrapPage((<AddTask />)));
       case 'grid':
-        return (this.wrapPage((<AddTask />)))
+        return (this.wrapPage((<TaskBoard />)));
       default:
         return (this.wrapPage(<h2>Try Again</h2>));
     }

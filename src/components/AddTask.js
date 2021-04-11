@@ -31,7 +31,7 @@ class AddTask extends React.Component {
                            onChange={(e) => this.setState({ newTask: e.target.value })} />
 
                     <button type="button"
-                            onClick={() => props.markDone(props.task)}
+                            onClick={() => this.onFormSubmit}
                             className="btn btn-primary" style={{ float: 'right' }}>
                         Add
                     </button>
