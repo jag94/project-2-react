@@ -44,35 +44,23 @@ class App extends React.Component {
     )
   }
 
-  //onAddTask?
+  onAddTask = (taskName, taskType) => {
+    let tasks = this.state.tasks;
+    tasks.push({
+      title: taskName,
+      id: this.state.tasks.length + 1,
+      type: taskType,
+      column: 'todo'
+    });
+
+    this.setState({ tasks });
+    this.onViewChange('list');
+  }
 
   onUpdateTaskList = (newTaskList) => {
     this.setState({ tasks: newTaskList});
   }
 
-  onFilter = (e) => {
-    this.setState({
-      filter: e.target.value
-    })
-  }
-
-  filteredTasks = () => {
-    return this.state.tasks.filter(tasks => {
-      if (this.state.filter === 'typeTask') {
-        return tasks.type === 'task';
-      }
-      else if (this.state.filter === 'typeFeature') {
-        return tasks.type === 'feature';
-      }
-      else {
-        return tasks.type === 'bug';
-      }
-    })
-  }
-
-      //onTypeFilter =
-
-  //<Addtask onSubmit={this.onAddTask} />
   render() {
     const { view } = this.state;
 
@@ -88,12 +76,12 @@ class App extends React.Component {
                       <option value="typeBug"> Bug </option>
                     </select>
                   </div>
-                <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} onFilter={this.filteredTasks()} />
+                <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
               </div>
           )
         );
       case 'add':
-        return (this.wrapPage((<AddTask />)));
+        return (this.wrapPage((<AddTask onSubmit={this.onAddTask} />)));
       case 'grid':
         return (this.wrapPage((<TaskBoard />)));
       default:

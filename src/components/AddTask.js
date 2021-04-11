@@ -2,14 +2,21 @@ import React from 'react';
 
 class AddTask extends React.Component {
     state = {
-        newTask: '', newType: ''
+        taskTitle: '',
+        taskType: 'task',
+    }
+
+    handleInputChanges = (event) => {
+
+        this.setState({
+            [event.target.name]: event.target.value    });
     }
 
     onFormSubmit = (event) => {
         event.preventDefault();
 
-        this.props.onSubmit(this.state.newTask);
-        this.setState({ newTask: '' })
+        this.props.onSubmit(this.state.taskTitle, this.state.taskType);
+        this.setState({ taskTitle: '', taskType: '' });
     }
 
     render() {
@@ -22,17 +29,16 @@ class AddTask extends React.Component {
                     <label htmlFor="taskTitle">Title</label>
                     <input type="text" className="form-control"
                            name="taskTitle"
-                           value={this.state.newTask}
-                           onChange={(e) => this.setState({ newTask: e.target.value })} />
+                           value={this.state.taskTitle}
+                           onChange={this.handleInputChanges} />
                     <label htmlFor="taskType"> Type </label>
-                    <input type="text" className="form-control"
-                           name="taskType"
-                           value={this.state.newType}
-                           onChange={(e) => this.setState({ newTask: e.target.value })} />
+                    <select className="form-control" name="taskType" id="typeFiltering" onChange={this.handleInputChanges} >
+                        <option value="task"> Task </option>
+                        <option value="feature"> Feature </option>
+                        <option value="bug"> Bug </option>
+                    </select>
 
-                    <button type="button"
-                            onClick={() => this.onFormSubmit}
-                            className="btn btn-primary" style={{ float: 'right' }}>
+                    <button type="submit" className="btn btn-primary">
                         Add
                     </button>
                 </form>
