@@ -14,23 +14,23 @@ class Pages extends React.Component {
 
     render () {
         return (
-        <ul className='nav pages'>
-            <li className='nav-item'>
+        <div className='nav pages'>
+            <div className='nav-item'>
                 <a className={this.isActivePage('grid')} onClick={(e) => this.onNavClick(e, 'grid')}>
                     Grid View
                 </a>
-            </li>
-            <li className='nav-item'>
+            </div>
+            <div className='nav-item'>
                 <a className={this.isActivePage('list')} onClick={(e) => this.onNavClick(e, 'list')}>
                     List View
                 </a>
-            </li>
-            <li className='nav-item'>
+            </div>
+            <div className='nav-item'>
                 <a className={this.isActivePage('add')} onClick={(e) => this.onNavClick(e, 'add')}>
                     Add Task
                 </a>
-            </li>
-        </ul>
+            </div>
+        </div>
     )
     }
 };

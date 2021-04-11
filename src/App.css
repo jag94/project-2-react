@@ -1,3 +1,23 @@
+body {
+  background-color: #52527a;
+  font-family: sans-serif;
+}
+
+.body-con {
+  margin: 12em auto auto;
+  background-color: lightpink;
+  width: 50%;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 10px;
+  border: 1px hidden white;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .App {
   text-align: center;
 }
@@ -29,4 +49,96 @@
 .type {
   text-align: right;
   padding-right: 1%;
+}
+
+/* Pages styling */
+
+.nav {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  height: 3.5rem;
+}
+
+.nav-item {
+  width: 5rem;
+  text-align: center;
+  font-size: small;
+  border: none;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  text-align: center;
+  color: aliceblue;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:active, .out:hover {
+  color: lightpink;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+/* Add Task Styling */
+
+h1 {
+  text-align: center;
+}
+
+.task-title-con, .task-type-con {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.task-type-con {
+  margin-top: 1%;
+}
+
+input, select {
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 2rem;
+  padding-left: 1em;
+}
+
+label {
+  margin: 1% 0;
+}
+
+select {
+  width: 20%;
+  cursor: pointer;
+}
+
+.button-con {
+  margin: auto auto 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  padding-bottom: 1rem;
+}
+
+button {
+  margin-bottom: 2%;
+  margin-top: 2%;
+  background-color: #52527a;
+  width: 30%;
+  color: white;
+  padding: 1.5% 2%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: medium;
 }

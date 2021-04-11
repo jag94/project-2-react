@@ -21,26 +21,31 @@ class AddTask extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>
+            <div className="body-con">
+                <h1>
                     Add a New Task
-                </h2>
+                </h1>
                 <form className="task-input form-group" onSubmit={this.onFormSubmit}>
-                    <label htmlFor="taskTitle">Title</label>
-                    <input type="text" className="form-control"
-                           name="taskTitle"
-                           value={this.state.taskTitle}
-                           onChange={this.handleInputChanges} />
-                    <label htmlFor="taskType"> Type </label>
-                    <select className="form-control" name="taskType" id="typeFiltering" onChange={this.handleInputChanges} >
-                        <option value="task"> Task </option>
-                        <option value="feature"> Feature </option>
-                        <option value="bug"> Bug </option>
-                    </select>
-
-                    <button type="submit" className="btn btn-primary">
-                        Add
-                    </button>
+                    <div className="task-title-con">
+                        <label htmlFor="taskTitle">Title</label>
+                        <input type="text" className="form-control"
+                               name="taskTitle"
+                               value={this.state.taskTitle}
+                               onChange={this.handleInputChanges} />
+                    </div>
+                    <div className="task-type-con">
+                        <label htmlFor="taskType"> Type </label>
+                        <select className="form-control" name="taskType" id="typeFiltering" onChange={this.handleInputChanges} >
+                            <option value="task"> Task </option>
+                            <option value="feature"> Feature </option>
+                            <option value="bug"> Bug </option>
+                        </select>
+                    </div>
+                    <div className="button-con">
+                        <button type="submit" className="btn btn-primary">
+                            Add Task
+                        </button>
+                    </div>
                 </form>
             </div>
         );
