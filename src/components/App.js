@@ -83,7 +83,7 @@ class App extends React.Component {
       case 'add':
         return (this.wrapPage((<AddTask onSubmit={this.onAddTask} />)));
       case 'grid':
-        return (this.wrapPage((<TaskBoard />)));
+        return (this.wrapPage((<TaskBoard tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>)));
       default:
         return (this.wrapPage(<h2>Try Again</h2>));
     }

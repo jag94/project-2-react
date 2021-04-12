@@ -142,3 +142,30 @@ button {
   cursor: pointer;
   font-size: medium;
 }
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 768px;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+#board-1, #board-2, #board-3, #board-4 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  margin-right: 1%;
+}
+
+.card {
+  padding: 15px 25px;
+  background-color: lightpink;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
