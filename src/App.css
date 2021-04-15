@@ -6,8 +6,7 @@ body {
 .body-con {
   margin: 12em auto auto;
   background-color: lightpink;
-  width: 50%;
-  padding: 2%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -16,6 +15,7 @@ body {
   border: 1px hidden white;
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2% 2% 4%;
 }
 
 .App {
@@ -114,7 +114,7 @@ label {
 }
 
 select {
-  width: 20%;
+  width: 30%;
   cursor: pointer;
 }
 
@@ -141,4 +141,78 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: medium;
+}
+
+/* Taskboard Styling */
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: auto;
+}
+
+#board-1, #board-2, #board-3, #board-4 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: lightpink;
+  padding: 15px;
+  margin: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  min-height: 350px;
+}
+
+h2 {
+  margin: 0 auto 1%;
+}
+
+.card {
+  padding: 15px 25px;
+  background-color: #52527a;
+  cursor: pointer;
+  margin-bottom: 15px;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+/* Media queries for mobile (Add) */
+
+@media only screen and (max-width: 1024px) {
+
+  .body-con {
+    text-align: center;
+    padding-bottom: 4%;
+  }
+
+  .task-type-con, .task-title-con {
+    align-content: center;
+  }
+
+  .task-type-con {
+    margin: 3% auto;
+  }
+
+  select {
+    width: 50%;
+  }
+
+  .button-con {
+    margin: 1% auto 20%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .body-con {
+    width: 80%;
+    font-size: medium;
+  }
+
+  .button-con {
+    margin: 1% auto;
+  }
 }

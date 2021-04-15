@@ -1,6 +1,5 @@
-//import logo from './logo.svg';
+// imports
 import '../App.css';
-
 import React from 'react';
 import axios from 'axios';
 
@@ -8,23 +7,38 @@ import TaskList from "./TaskList";
 import Pages from "./Pages";
 import AddTask from "./AddTask";
 import TaskBoard from "./TaskBoard";
-//anything else for imports
 
 //Constants
-
+const LARGE_DESKTOP = 1366;
+const SMALL_DESKTOP = 1024;
+const TABLET = 768;
 
 class App extends React.Component {
   state = {
-    tasks: [], errorMessage: '', view: 'list', filter: ''
+    tasks: [],
+    sortedTasks: [],
+    errorMessage: '',
+    view: 'grid',
+    browserSize: 0,
+    breakpoint: 'standard',
+    singlePage: 'ToDo',
+
+    todo: [],
+    inp: [],
+    review: [],
+    done: []
   }
 
   componentDidMount() {
     this.getData();
+    window.addEventListener('resize', this.sizeWindow);
+    this.sizeWindow();
   }
 
   getData() {
     axios.get('http://my-json-server.typicode.com/bnissen24/project2DB/posts').then(response => {
-      this.setState({tasks: response.data});
+      let temp = this.sortList(response.data);
+      this.setState({tasks: response.data, sortedTasks: temp});
     }).catch(error => {
       this.setState({ errorMessage: error.message});
     });
@@ -57,8 +71,52 @@ class App extends React.Component {
     this.onViewChange('list');
   }
 
+  sortList(list) {
+
+      this.setState({
+      todo: list.filter(task => task.column === 'todo'),
+      inp: list.filter(task => task.column === 'in-progress'),
+      review: list.filter(task => task.column === 'review'),
+      done: list.filter(task => task.column === 'done')
+      })
+
+  }
+
   onUpdateTaskList = (newTaskList) => {
-    this.setState({ tasks: newTaskList});
+    /*let taskList = this.state.tasks;
+    const index = taskList.findIndex(task => task.id === newTaskList.id);
+    taskList[index] = newTaskList; */
+this.sortList(newTaskList);
+  }
+
+  makeMobile = () => {
+    if (this.state.singlePage === 'ToDo') {
+      return <TaskBoard content={this.state.todo}/>;
+    }
+    if (this.state.singlePage === 'InProgress') {
+      return <TaskBoard content={this.state.inp}/>;
+    }
+    if (this.state.singlePage === 'Review') {
+      return <TaskBoard content={this.state.review}/>;
+    }
+    if (this.state.singlePage === 'Done') {
+      return <TaskBoard content={this.state.done}/>;
+    }
+  }
+
+  sizeWindow = () => {
+    const browserWidth = window.innerWidth;
+    let breakpoint = 'standard';
+
+    if (browserWidth < LARGE_DESKTOP && browserWidth >= SMALL_DESKTOP) {
+      breakpoint = 'small-desktop';
+    } else if (browserWidth < SMALL_DESKTOP && browserWidth >= TABLET) {
+      breakpoint = 'tablet';
+    } else if (browserWidth < TABLET) {
+      breakpoint = 'mobile';
+    }
+
+    this.setState({breakpoint, browserWidth});
   }
 
   render() {
@@ -83,7 +141,23 @@ class App extends React.Component {
       case 'add':
         return (this.wrapPage((<AddTask onSubmit={this.onAddTask} />)));
       case 'grid':
-        return (this.wrapPage((<TaskBoard />)));
+        switch (this.state.breakpoint) {
+          case 'standard':
+            return (this.wrapPage((<TaskBoard 
+                todos={this.state.todo}
+                revs={this.state.review}
+                inps={this.state.inp}
+                dones={this.state.done}
+                onUpdateTaskList={this.onUpdateTaskList}/>)));
+          case 'small-desktop':
+            return (this.wrapPage((<TaskBoard tasks={this.state.todo} onUpdateTaskList={this.onUpdateTaskList}/>)));
+          case 'tablet':
+            return (this.wrapPage((<TaskBoard tasks={this.state.todo} onUpdateTaskList={this.onUpdateTaskList}/>)));
+          case 'mobile':
+            return (this.wrapPage(this.makeMobile(<TaskBoard tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>)));
+          default:
+            return (this.wrapPage((<AddTask onSubmit={this.onAddTask} />)));
+        }
       default:
         return (this.wrapPage(<h2>Try Again</h2>));
     }

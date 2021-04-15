@@ -1,19 +1,20 @@
 import React from 'react';
+import Card from './Card'
 
 const Tasks = props => {
     return (
-        <div className="list-group-item">
-            <div className="list-items name">
+            <Card id="card-1" className="card" draggable="true">
                 { props.task.title }
-            </div>
-            <div className="list-items status">
-                { props.task.column }
-            </div>
-            <div className="list-items type">
-                { props.task.type }
-            </div>
-        </div>
+            </Card>
     )
 };
 
 export default Tasks;
+
+
+/*<div className="list-items status">
+    { props.task.column }
+</div>
+<div className="list-items type">
+    { props.task.type }
+</div>*/

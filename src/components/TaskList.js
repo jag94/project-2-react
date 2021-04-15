@@ -17,9 +17,6 @@ class TaskList extends React.Component {
             return <Tasks
                 task={task}
                 key={task.id}
-                markDone={this.markDone}
-                filterStatus={task.column}
-                filterType={task.type}
             />
         });
 
