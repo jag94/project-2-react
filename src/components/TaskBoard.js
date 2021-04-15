@@ -46,7 +46,7 @@ class TaskBoard extends React.Component {
 
         return (
             <div className="TaskBoard">
-                <main className="flexbox">
+                <main className="flexbox main-flex">
                     <Board id="board-1" className="board">
                         <h2> To Do </h2>
                         { todoTask }

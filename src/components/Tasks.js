@@ -4,17 +4,12 @@ import Card from './Card'
 const Tasks = props => {
     return (
             <Card id="card-1" className="card" draggable="true">
-                { props.task.title }
+                <div className="name">{ props.task.title }</div>
+                <div className="id"> Task ID: { props.task.id }</div>
+                <div className="type"> Type: { props.task.type }</div>
+
             </Card>
     )
 };
 
 export default Tasks;
-
-
-/*<div className="list-items status">
-    { props.task.column }
-</div>
-<div className="list-items type">
-    { props.task.type }
-</div>*/

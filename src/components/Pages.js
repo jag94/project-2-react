@@ -21,11 +21,6 @@ class Pages extends React.Component {
                 </a>
             </div>
             <div className='nav-item'>
-                <a className={this.isActivePage('list')} onClick={(e) => this.onNavClick(e, 'list')}>
-                    List View
-                </a>
-            </div>
-            <div className='nav-item'>
                 <a className={this.isActivePage('add')} onClick={(e) => this.onNavClick(e, 'add')}>
                     Add Task
                 </a>

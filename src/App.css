@@ -33,22 +33,9 @@ body {
   flex-wrap: nowrap;
 }
 
-.list-items, h2 {
+.list-items {
   width: 33.3%;
   border: grey 1px solid;
-}
-.name {
-  text-align: left;
-  padding-left: 1%;
-}
-
-.status {
-  text-align: center;
-}
-
-.type {
-  text-align: right;
-  padding-right: 1%;
 }
 
 /* Pages styling */
@@ -150,7 +137,6 @@ button {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   margin: auto;
 }
 
@@ -171,6 +157,8 @@ h2 {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   padding: 15px 25px;
   background-color: #52527a;
   cursor: pointer;
@@ -178,6 +166,10 @@ h2 {
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
+}
+
+.card div {
+  margin: 1%;
 }
 
 /* Media queries for mobile (Add) */
@@ -214,5 +206,47 @@ h2 {
 
   .button-con {
     margin: 1% auto;
+  }
+}
+
+/* Media queries for mobile (Board) */
+
+@media only screen and (min-width: 1024px) {
+  .TaskBoard {
+    display: flex;
+  }
+
+  .main-flex {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;
+  }
+
+  #board-1, #board-2, #board-3, #board-4 {
+    width: 290px;
+    margin: 0 0 2%;
+    min-height: 405px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+.drop-con {
+  display: flex;
+  margin-top: 3%;
+}
+  .mobile-form {
+    margin: auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-con {
+    width: 100%;
+  }
+
+  .over-board {
+    width: 80%;
+    margin: auto;
   }
 }
