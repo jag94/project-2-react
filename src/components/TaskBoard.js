@@ -6,14 +6,46 @@ import "../App.css";
 
 class TaskBoard extends React.Component {
 
-    render() {
 
+    cardOver = (task, over) => {
+        const taskItem = this.props.tasks.findIndex(e => e.id === task.id);
+        let taskList = this.props.tasks;
+        let column = taskList[taskItem]["column"];
+
+        if (column === 'todo' && over === 1) {
+            taskList[taskItem]["column"] = 'in-progress';
+        }
+
+        if (column === 'in-progress' && over === 1) {
+            taskList[taskItem]["column"] = 'review';
+        }
+            else if (column === 'in-progress' && over === 0){
+                taskList[taskItem]["column"] = 'todo';
+        }
+
+        if (column === 'review' && over === 1) {
+            taskList[taskItem]["column"] = 'done';
+        }
+            else if (column === 'review' && over === 0){
+                taskList[taskItem]["column"] = 'in-progress';
+        }
+
+        if (column === 'done' && over === 0) {
+            taskList[taskItem]["column"] = 'review';
+        }
+
+        console.log(this.props);
+        this.props.onUpdateTaskList(taskList);
+    }
+
+    render() {
         const todoTask = this.props.todos.map(task => {
             if (task.column === 'todo') {
             return <Tasks
                 task={task}
                 key={task.id}
                 column={task.column}
+                cardOver={this.cardOver}
             />}
         });
 
@@ -23,6 +55,7 @@ class TaskBoard extends React.Component {
                     task={task}
                     key={task.id}
                     column={task.column}
+                    cardOver={this.cardOver}
                 />}
         });
 
@@ -32,6 +65,7 @@ class TaskBoard extends React.Component {
                     task={task}
                     key={task.id}
                     column={task.column}
+                    cardOver={this.cardOver}
                 />}
         });
 
@@ -41,6 +75,7 @@ class TaskBoard extends React.Component {
                     task={task}
                     key={task.id}
                     column={task.column}
+                    cardOver={this.cardOver}
                 />}
         });
 

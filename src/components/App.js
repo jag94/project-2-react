@@ -89,6 +89,7 @@ class App extends React.Component {
   }
 
   onUpdateTaskList = (newTaskList) => {
+    this.setState({tasks: newTaskList});
     this.sortList(newTaskList);
   }
 
@@ -124,6 +125,7 @@ class App extends React.Component {
                 revs={this.state.review}
                 inps={this.state.inp}
                 dones={this.state.done}
+                tasks={this.state.tasks}
                 onUpdateTaskList={this.onUpdateTaskList}/>)));
           case 'small-desktop':
             return (this.wrapPage((<TaskBoard
@@ -131,6 +133,7 @@ class App extends React.Component {
                 revs={this.state.review}
                 inps={this.state.inp}
                 dones={this.state.done}
+                tasks={this.state.tasks}
                 onUpdateTaskList={this.onUpdateTaskList}/>)));
           case 'tablet':
           case 'mobile':

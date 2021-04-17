@@ -42,7 +42,7 @@ class AddTask extends React.Component {
                         </select>
                     </div>
                     <div className="button-con">
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn-add">
                             Add Task
                         </button>
                     </div>
