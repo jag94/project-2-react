@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/jag94/project-2-react/static/css/main.8e059e1f.chunk.css",
-    "main.js": "/jag94/project-2-react/static/js/main.0d1cb9af.chunk.js",
-    "main.js.map": "/jag94/project-2-react/static/js/main.0d1cb9af.chunk.js.map",
-    "runtime-main.js": "/jag94/project-2-react/static/js/runtime-main.7cb76731.js",
-    "runtime-main.js.map": "/jag94/project-2-react/static/js/runtime-main.7cb76731.js.map",
-    "static/js/2.1de1cbf7.chunk.js": "/jag94/project-2-react/static/js/2.1de1cbf7.chunk.js",
-    "static/js/2.1de1cbf7.chunk.js.map": "/jag94/project-2-react/static/js/2.1de1cbf7.chunk.js.map",
-    "static/js/3.ad9acb14.chunk.js": "/jag94/project-2-react/static/js/3.ad9acb14.chunk.js",
-    "static/js/3.ad9acb14.chunk.js.map": "/jag94/project-2-react/static/js/3.ad9acb14.chunk.js.map",
-    "index.html": "/jag94/project-2-react/index.html",
-    "static/css/main.8e059e1f.chunk.css.map": "/jag94/project-2-react/static/css/main.8e059e1f.chunk.css.map",
-    "static/js/2.1de1cbf7.chunk.js.LICENSE.txt": "/jag94/project-2-react/static/js/2.1de1cbf7.chunk.js.LICENSE.txt"
+    "main.css": "/project-2-react/static/css/main.8e059e1f.chunk.css",
+    "main.js": "/project-2-react/static/js/main.0d1cb9af.chunk.js",
+    "main.js.map": "/project-2-react/static/js/main.0d1cb9af.chunk.js.map",
+    "runtime-main.js": "/project-2-react/static/js/runtime-main.ad963953.js",
+    "runtime-main.js.map": "/project-2-react/static/js/runtime-main.ad963953.js.map",
+    "static/js/2.1de1cbf7.chunk.js": "/project-2-react/static/js/2.1de1cbf7.chunk.js",
+    "static/js/2.1de1cbf7.chunk.js.map": "/project-2-react/static/js/2.1de1cbf7.chunk.js.map",
+    "static/js/3.ad9acb14.chunk.js": "/project-2-react/static/js/3.ad9acb14.chunk.js",
+    "static/js/3.ad9acb14.chunk.js.map": "/project-2-react/static/js/3.ad9acb14.chunk.js.map",
+    "index.html": "/project-2-react/index.html",
+    "static/css/main.8e059e1f.chunk.css.map": "/project-2-react/static/css/main.8e059e1f.chunk.css.map",
+    "static/js/2.1de1cbf7.chunk.js.LICENSE.txt": "/project-2-react/static/js/2.1de1cbf7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7cb76731.js",
+    "static/js/runtime-main.ad963953.js",
     "static/js/2.1de1cbf7.chunk.js",
     "static/css/main.8e059e1f.chunk.css",
     "static/js/main.0d1cb9af.chunk.js"
