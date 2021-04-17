@@ -3,7 +3,6 @@ import '../App.css';
 import React from 'react';
 import axios from 'axios';
 
-import TaskList from "./TaskList";
 import Pages from "./Pages";
 import AddTask from "./AddTask";
 import TaskBoard from "./TaskBoard";
@@ -18,6 +17,7 @@ const LARGE_DESKTOP = 1366;
 const SMALL_DESKTOP = 1024;
 const TABLET = 768;
 
+// Class
 class App extends React.Component {
   state = {
     tasks: [],
@@ -63,16 +63,18 @@ class App extends React.Component {
   }
 
   onAddTask = (taskName, taskType) => {
-    let todo = this.state.todo;
-    todo.push({
+    let newTask = this.state.tasks;
+    newTask.push({
       title: taskName,
       id: this.state.tasks.length + 1,
       type: taskType,
       column: 'todo'
     });
 
-    this.setState({ todo });
+    this.setState({ tasks: newTask });
     this.onViewChange('grid');
+
+    this.onUpdateTaskList(this.state.tasks);
   }
 
   onMobileView = (singlePage) => {
@@ -112,7 +114,6 @@ class App extends React.Component {
     const { view } = this.state;
     const { breakpoint } = this.state;
     const { singlePage } = this.state;
-    const { tasks } = this.state;
 
     switch (view) {
       case 'add':
@@ -126,7 +127,8 @@ class App extends React.Component {
                 inps={this.state.inp}
                 dones={this.state.done}
                 tasks={this.state.tasks}
-                onUpdateTaskList={this.onUpdateTaskList}/>)));
+                onUpdateTaskList={this.onUpdateTaskList}
+                />)));
           case 'small-desktop':
             return (this.wrapPage((<TaskBoard
                 todos={this.state.todo}
@@ -134,34 +136,45 @@ class App extends React.Component {
                 inps={this.state.inp}
                 dones={this.state.done}
                 tasks={this.state.tasks}
-                onUpdateTaskList={this.onUpdateTaskList}/>)));
+                onUpdateTaskList={this.onUpdateTaskList}
+                />)));
           case 'tablet':
           case 'mobile':
             switch (singlePage) {
               case 'ToDo':
                 return (
                     this.wrapPage(<div><MobileView onChange={this.onMobileView.bind(this)} />
-                <TodoMobile todos={this.state.todo} onUpdateTaskList={this.onUpdateTaskList}/></div>)
+                <TodoMobile todos={this.state.todo}
+                            tasks={this.state.tasks}
+                            onUpdateTaskList={this.onUpdateTaskList}/></div>)
                 );
               case 'InProgress':
                 return (
                     this.wrapPage(<div><MobileView onChange={this.onMobileView.bind(this)} />
-                      <div><InpMobile inps={this.state.inp} onUpdateTaskList={this.onUpdateTaskList}/></div></div>)
+                      <div><InpMobile inps={this.state.inp}
+                                      tasks={this.state.tasks}
+                                      onUpdateTaskList={this.onUpdateTaskList}/></div></div>)
                 );
               case 'Review':
                 return (
                     this.wrapPage(<div><MobileView onChange={this.onMobileView.bind(this)} />
-                      <div><ReviewMobile revs={this.state.review} onUpdateTaskList={this.onUpdateTaskList}/></div></div>)
+                      <div><ReviewMobile revs={this.state.review}
+                                         tasks={this.state.tasks}
+                                         onUpdateTaskList={this.onUpdateTaskList}/></div></div>)
                 );
               case 'Done':
                 return (
                     this.wrapPage(<div><MobileView onChange={this.onMobileView.bind(this)} />
-                      <div><DoneMobile dones={this.state.done} onUpdateTaskList={this.onUpdateTaskList}/></div></div>)
+                      <div><DoneMobile dones={this.state.done}
+                                       tasks={this.state.tasks}
+                                       onUpdateTaskList={this.onUpdateTaskList}/></div></div>)
                 );
               default:
                 return (
                     this.wrapPage(<div><MobileView onChange={this.onMobileView.bind(this)} />
-                      <TodoMobile todos={this.state.todo} onUpdateTaskList={this.onUpdateTaskList}/></div>)
+                      <TodoMobile todos={this.state.todo}
+                                  tasks={this.state.tasks}
+                                  onUpdateTaskList={this.onUpdateTaskList}/></div>)
                 );
             }
           default:

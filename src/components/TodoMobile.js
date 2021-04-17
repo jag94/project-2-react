@@ -1,9 +1,20 @@
 import React from 'react';
 import Tasks from './Tasks';
-import Board from "./Board";
 import "../App.css";
 
 class TodoMobile extends React.Component {
+
+    moveTask = (task, move) => {
+        const taskID = this.props.tasks.findIndex(t => t.id === task.id);
+        let tempList = this.props.tasks;
+        let taskColumn = tempList[taskID]["column"];
+
+        if (taskColumn === "todo" && move === 'right'){
+            tempList[taskID]["column"] = "in-progress";
+        }
+
+        this.props.onUpdateTaskList(tempList);
+    }
 
     render() {
 
@@ -12,16 +23,17 @@ class TodoMobile extends React.Component {
                 task={dos}
                 key={dos.id}
                 column={dos.column}
+                moveTask={this.moveTask}
             />
         });
 
         return (
             <div className="TodoMobile  over-board">
                 <main className="flexbox">
-                    <Board id="board-1" className="board">
+                    <div id="board-1" className="board">
                         <h2> To Do </h2>
                         { todoTask }
-                    </Board>
+                    </div>
                 </main>
             </div>
         )

@@ -5,7 +5,7 @@ body {
 
 .body-con {
   margin: 2em auto auto;
-  background-color: white;
+  background-color: aliceblue;
   width: 70%;
   display: flex;
   flex-wrap: wrap;
@@ -67,7 +67,7 @@ a:link, a:visited {
 }
 
 .nav-link:hover, .nav-link:focus, .nav-link:active, .out:hover {
-  color: lightpink;
+  color: mediumaquamarine;
   background-color: inherit;
   cursor: pointer;
 }
@@ -130,6 +130,11 @@ button {
   font-size: medium;
 }
 
+button:hover, button:focus, button:active {
+  color: mediumaquamarine;
+  cursor: pointer;
+}
+
 /* Taskboard Styling */
 
 .flexbox {
@@ -159,9 +164,8 @@ h2 {
 .card {
   display: flex;
   flex-direction: column;
-  padding: 15px 25px;
+  padding: 3%;
   background-color: #52527a;
-  cursor: pointer;
   margin-bottom: 15px;
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -223,11 +227,13 @@ h2 {
   }
 
   #board-1, #board-2, #board-3, #board-4 {
-    width: 290px;
+    width: 22%;
+    min-width: 290px;
     margin: 0 0 2%;
     min-height: 405px;
   }
 }
+
 
 @media only screen and (max-width: 1023px) {
 .drop-con {
@@ -249,10 +255,17 @@ h2 {
     width: 80%;
     margin: auto;
   }
-
-  /* Card Buttons */
-.btn-move {
-  background-color: aliceblue;
 }
 
+/* Card Buttons */
+
+.control-move {
+  display: flex;
+}
+
+.btn-move {
+  margin: auto;
+  background-color: aliceblue;
+  color: #52527a;
+  font-size: 60%;
 }

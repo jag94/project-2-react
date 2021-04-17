@@ -1,9 +1,13 @@
 import React from "react";
 
+//required or code will die
 function Card (props) {
 
     const dragStart = e => {
         const target = e.target;
+
+
+        console.log(target);
         e.dataTransfer.setData('card_id', target.id);
         setTimeout(() => {
             target.style.display = "none";
@@ -21,6 +25,7 @@ function Card (props) {
             draggable={props.draggable}
             onDragStart={dragStart}
             onDragOver={dragOver}
+
         >
             { props.children }
         </div>

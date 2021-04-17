@@ -2,7 +2,7 @@ import React from 'react';
 
 class MobileView extends React.Component {
     state = {
-        mobile: 'ToDo',
+        mobile: '',
     }
 
     handleChange = (event) => {

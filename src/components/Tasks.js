@@ -1,28 +1,27 @@
 import React from 'react';
-import Card from './Card'
 import "../App.css"
 
 const Tasks = props => {
     return (
-            <Card id="card-1" className="card" draggable="false">
+            <div id="card-1" className="card" draggable="false">
                 <div className="name">{ props.task.title }</div>
                 <div className="id"> Task ID: { props.task.id }</div>
                 <div className="type"> Type: { props.task.type }</div>
-                <div> { props.task.column !== "ToDo" ? (
+                <div className="control-move"> { props.task.column !== "todo" ? (
                     <button type="button"
-                            onClick={() => props.cardOver(props.task, 0)}
+                            onClick={() => props.cardOver(props.task, 'left')}
                             className="btn-move">
-                        Move Left
+                        Previous
                     </button>
                 ) : null }
-                { props.task.column !== "Done" ? (
+                { props.task.column !== "done" ? (
                     <button type="button"
-                            onClick={() => props.cardOver(props.task, 1)}
+                            onClick={() => props.cardOver(props.task, 'right')}
                             className="btn-move">
-                        Move Right
+                        Next
                     </button>
                 ) : null } </div>
-            </Card>
+            </div>
     )
 };
 

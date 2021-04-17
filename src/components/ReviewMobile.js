@@ -1,9 +1,23 @@
 import React from 'react';
 import Tasks from './Tasks';
-import Board from "./Board";
 import "../App.css";
 
 class ReviewMobile extends React.Component {
+
+    moveTask = (task, move) => {
+        const taskID = this.props.tasks.findIndex(t => t.id === task.id);
+        let tempList = this.props.tasks;
+        let taskColumn = tempList[taskID]["column"];
+
+        if (taskColumn === "review" && move === 'right'){
+            tempList[taskID]["column"] = "done";
+        }
+        else if (taskColumn === "review" && move === 'left'){
+            tempList[taskID]["column"] = "in-progress";
+        }
+
+        this.props.onUpdateTaskList(tempList);
+    }
 
     render() {
 
@@ -12,16 +26,17 @@ class ReviewMobile extends React.Component {
                 task={revs}
                 key={revs.id}
                 column={revs.column}
+                moveTask={this.moveTask}
             />
         });
 
         return (
             <div className="ReviewMobile over-board">
                 <main className="flexbox">
-                    <Board id="board-1" className="board">
+                    <div id="board-1" className="board">
                         <h2> Review </h2>
                         { revTask }
-                    </Board>
+                    </div>
                 </main>
             </div>
         )
