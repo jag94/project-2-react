@@ -2,7 +2,7 @@
   "name": "project-2-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jag94.github.io/project-2-react/",
+  "homepage": "https://jag94.github.io/project-2-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
