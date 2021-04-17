@@ -4,7 +4,7 @@ import "../App.css";
 
 class InpMobile extends React.Component {
 
-    moveTask = (task, move) => {
+    cardOver = (task, move) => {
         const taskID = this.props.tasks.findIndex(t => t.id === task.id);
         let tempList = this.props.tasks;
         let taskColumn = tempList[taskID]["column"];
@@ -26,7 +26,7 @@ class InpMobile extends React.Component {
                 task={inps}
                 key={inps.id}
                 column={inps.column}
-                moveTask={this.moveTask}
+                cardOver={this.cardOver}
             />
         });
 

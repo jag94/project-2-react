@@ -4,7 +4,7 @@ import "../App.css";
 
 class TodoMobile extends React.Component {
 
-    moveTask = (task, move) => {
+    cardOver = (task, move) => {
         const taskID = this.props.tasks.findIndex(t => t.id === task.id);
         let tempList = this.props.tasks;
         let taskColumn = tempList[taskID]["column"];
@@ -23,7 +23,7 @@ class TodoMobile extends React.Component {
                 task={dos}
                 key={dos.id}
                 column={dos.column}
-                moveTask={this.moveTask}
+                cardOver={this.cardOver}
             />
         });
 

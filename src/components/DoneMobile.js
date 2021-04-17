@@ -4,13 +4,13 @@ import "../App.css";
 
 class DoneMobile extends React.Component {
 
-    moveTask = (task, move) => {
+    cardOver = (task, move) => {
         const taskID = this.props.tasks.findIndex(t => t.id === task.id);
         let tempList = this.props.tasks;
         let taskColumn = tempList[taskID]["column"];
 
         if (taskColumn === "done" && move === 'left'){
-            tempList[taskID]["column"] = "review";
+            tempList[taskID]["column"] =     "review";
         }
 
         this.props.onUpdateTaskList(tempList);
@@ -23,7 +23,7 @@ class DoneMobile extends React.Component {
                 task={dones}
                 key={dones.id}
                 column={dones.column}
-                moveTask={this.moveTask}
+                cardOver={this.cardOver}
             />
         });
 
